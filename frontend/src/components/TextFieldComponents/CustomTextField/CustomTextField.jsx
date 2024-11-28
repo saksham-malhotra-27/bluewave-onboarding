@@ -27,6 +27,7 @@ const CustomTextField = ({
   textFieldMargin = "normal",
   type = "text",
   required = false,
+  fullWidth = false,
   style
 }) => {
   return (
@@ -44,8 +45,8 @@ const CustomTextField = ({
         name={name}
         required={Boolean(required)}
         className="textField"
-        sx={{ width: TextFieldWidth }}
-        fullWidth
+        sx={{ width: fullWidth? "100%": TextFieldWidth }}
+        fullWidth={fullWidth}
         margin={textFieldMargin}
         value={value}
         onChange={onChange}
@@ -105,6 +106,7 @@ CustomTextField.propTypes = {
   textFieldMargin: PropTypes.string,
   type: PropTypes.string,
   required: PropTypes.bool,
+  fullWidth: PropTypes.bool, // New prop
 };
 
 export default CustomTextField;
